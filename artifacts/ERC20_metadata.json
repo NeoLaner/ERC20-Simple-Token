@@ -6,6 +6,73 @@
 	"output": {
 		"abi": [
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "allowence",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "approve",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "balanceOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "decimals",
 				"outputs": [
@@ -80,6 +147,35 @@
 				],
 				"stateMutability": "nonpayable",
 				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "transferFrom",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -110,11 +206,11 @@
 	},
 	"sources": {
 		"ERC20.sol": {
-			"keccak256": "0x7faa14627bab823dfdee1b7e9fca0acdb90d662994dc51ff9d2e103782c359da",
+			"keccak256": "0x78b37054cdb47601063dc2324acd74cbf30fc4efb85f46e6be634a631df76b52",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://fc27de3ea4c0bff7019dc5922229e25fae2d0b56913f636b34d7118712baa6ad",
-				"dweb:/ipfs/QmS6pBdMLYhAuTJpDCsHux9ASMDcf2RtLsxUMwFRMRA3Sr"
+				"bzz-raw://11762d05f5e1eea7cfbcf31afa3e0bf1603485d411f8f056f62c4254c6dd9171",
+				"dweb:/ipfs/QmcKL8fcgzXrgEFgzWjCqh1TPfb1nYU6Sfey8QPGbHCWEg"
 			]
 		}
 	},

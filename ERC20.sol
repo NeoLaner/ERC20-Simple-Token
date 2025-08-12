@@ -8,7 +8,8 @@ contract ERC20 {
     uint8 constant public  decimals = 18;
 
     uint public totalSupply; 
-    mapping (address account => uint) balanceOf;
+    mapping (address  => uint) public  balanceOf;
+    mapping (address => mapping(address  => uint)) public allowence;
 
     function  transfer(address to  ,uint amount ) public returns (bool) {
         require(balanceOf[msg.sender] >= amount , "Insufficient Balance");
@@ -18,4 +19,19 @@ contract ERC20 {
         return true;
     }
 
+    function transferFrom(address sender, address recipient, uint256 amount) public  returns  (bool) {
+        allowence[sender][msg.sender] -= amount;
+
+        balanceOf[sender] -= amount;
+        balanceOf[recipient] += amount;
+        
+        return  true;
+    }
+
+    function approve(address spender, uint256 amount) public  returns  (bool) {
+        allowence[msg.sender][spender] += amount;
+
+        return true; 
+    }
 }
+
