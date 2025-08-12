@@ -19,12 +19,12 @@ contract ERC20 {
         return true;
     }
 
-    function transferFrom(address sender, address recipient, uint256 amount) public  returns  (bool) {
-        allowence[sender][msg.sender] -= amount;
+    function transferFrom(address from, address to, uint256 amount) public  returns  (bool) {
+        allowence[from][msg.sender] -= amount;
 
-        balanceOf[sender] -= amount;
-        balanceOf[recipient] += amount;
-        
+        balanceOf[from] -= amount;
+        balanceOf[to] += amount;
+
         return  true;
     }
 

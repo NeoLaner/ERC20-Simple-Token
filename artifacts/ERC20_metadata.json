@@ -152,12 +152,12 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "sender",
+						"name": "from",
 						"type": "address"
 					},
 					{
 						"internalType": "address",
-						"name": "recipient",
+						"name": "to",
 						"type": "address"
 					},
 					{
@@ -206,11 +206,11 @@
 	},
 	"sources": {
 		"ERC20.sol": {
-			"keccak256": "0x78b37054cdb47601063dc2324acd74cbf30fc4efb85f46e6be634a631df76b52",
+			"keccak256": "0x2ef92234170482ea86b455ed6ae81599d139d53a0ec2b3e2b5ee0bf26ba9bb6e",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://11762d05f5e1eea7cfbcf31afa3e0bf1603485d411f8f056f62c4254c6dd9171",
-				"dweb:/ipfs/QmcKL8fcgzXrgEFgzWjCqh1TPfb1nYU6Sfey8QPGbHCWEg"
+				"bzz-raw://9fb8348f8a631c3c751402ec056fcc2a1566fdec7991ffe7b2309f9f41a17a05",
+				"dweb:/ipfs/QmRYYgMiEVSQqDu2Jm2yy8gqRn2XN4s3vkmyH7M7HdbviN"
 			]
 		}
 	},
