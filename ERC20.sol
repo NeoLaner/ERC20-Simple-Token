@@ -3,23 +3,28 @@
 pragma solidity 0.8.30;
 
 contract ERC20 {
-    string constant public  name = "MyTokenName";
-    string constant public  symbol = "MTN";
-    uint8 constant public  decimals = 18;
+    string constant public name = "MyTokenName";
+    string constant public symbol = "MTN";
+    uint8 constant public decimals = 18;
 
-    event Transfer(address indexed from , address indexed to , uint value);
-    event Approval(address indexed owner , address indexed spender , uint value);
+    event Transfer(address indexed from, address indexed to, uint256 value);
+    event Approval(address indexed owner, address indexed spender, uint256 value);
 
-    uint public totalSupply; 
-    mapping (address  => uint) public  balanceOf;
-    mapping (address => mapping(address  => uint)) public allowance;
+    uint public totalSupply;
+    mapping(address => uint256) public balanceOf;
+    mapping(address => mapping(address => uint256)) public allowance;
 
-    function  transfer(address to  ,uint value ) external returns (bool) {
-        return _transfer(msg.sender , to , value );
+    constructor(uint256 initialSupply) {
+        totalSupply = initialSupply;
+        balanceOf[msg.sender] = initialSupply;
     }
 
-    function transferFrom(address from, address to, uint256 value) external returns  (bool) {
-        require(allowance[from][msg.sender] >= value , "Insufficient allowance");
+    function transfer(address to, uint256 value) external returns (bool) {
+        return _transfer(msg.sender, to, value);
+    }
+
+    function transferFrom(address from, address to, uint256 value) external returns (bool) {
+        require(allowance[from][msg.sender] >= value, "Insufficient Allowance");
         allowance[from][msg.sender] -= value;
 
         emit Approval(from, msg.sender, allowance[from][msg.sender]);
@@ -27,24 +32,22 @@ contract ERC20 {
         return _transfer(from, to, value);
     }
 
-    function approve(address spender, uint256 value) external returns  (bool) {
-        allowance[msg.sender][spender] += value;
+    function approve(address spender, uint256 value) external returns (bool) {
+        allowance[msg.sender][spender] = value; // Using direct assignment to avoid potential issues with +=
 
         emit Approval(msg.sender, spender, value);
 
-        return true; 
+        return true;
     }
 
-    function _transfer(address from ,address to , uint value) private  returns  (bool) {
-        require(balanceOf[from] >= value , "Insufficient Balance");
-
-        emit Transfer(from, to, value);
+    function _transfer(address from, address to, uint256 value) private returns (bool) {
+        require(balanceOf[from] >= value, "Insufficient Balance");
 
         balanceOf[from] -= value;
         balanceOf[to] += value;
 
+        emit Transfer(from, to, value);
+
         return true;
     }
 }
-
-

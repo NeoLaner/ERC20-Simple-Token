@@ -6,6 +6,17 @@
 	"output": {
 		"abi": [
 			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "initialSupply",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
 				"anonymous": false,
 				"inputs": [
 					{
@@ -256,11 +267,11 @@
 	},
 	"sources": {
 		"ERC20.sol": {
-			"keccak256": "0xc10d2e34582220bae431d85c9225029c7b293a61c156ce306e63973d95e38f48",
+			"keccak256": "0xf32dbb5ace45401b1d39605266a0e3ed0516d258085385adb076c93d2246d9a9",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://6974862e8fa01a2e26f5187cea25a1d73a6743c056afe69ac94cb5a350a34722",
-				"dweb:/ipfs/QmWH7x2YQvQAuxGfKQmXjeRYMzHW9LCfLoJDvECXEeNoJV"
+				"bzz-raw://7e234979e32811e385b88d862218fac53ca35b3d788099669aa05d8c2f9124d8",
+				"dweb:/ipfs/QmVH9Lqu81Ka1Q8i9q8U57tQnfuy7nWnJgPFdwy9u6ejUo"
 			]
 		}
 	},
