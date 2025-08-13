@@ -6,6 +6,56 @@
 	"output": {
 		"abi": [
 			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "Approval",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "Transfer",
+				"type": "event"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "address",
@@ -18,7 +68,7 @@
 						"type": "address"
 					}
 				],
-				"name": "allowence",
+				"name": "allowance",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -38,7 +88,7 @@
 					},
 					{
 						"internalType": "uint256",
-						"name": "amount",
+						"name": "value",
 						"type": "uint256"
 					}
 				],
@@ -133,7 +183,7 @@
 					},
 					{
 						"internalType": "uint256",
-						"name": "amount",
+						"name": "value",
 						"type": "uint256"
 					}
 				],
@@ -162,7 +212,7 @@
 					},
 					{
 						"internalType": "uint256",
-						"name": "amount",
+						"name": "value",
 						"type": "uint256"
 					}
 				],
@@ -206,11 +256,11 @@
 	},
 	"sources": {
 		"ERC20.sol": {
-			"keccak256": "0x338a23b7ab627d98f78e277cafa27494cc830617a831082f8232a5c3d5c28f27",
+			"keccak256": "0xc10d2e34582220bae431d85c9225029c7b293a61c156ce306e63973d95e38f48",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://068c60288bf4eb47267b95caca29b7dace06ffb9286b2f468b15ead0944c6f2b",
-				"dweb:/ipfs/QmcuMwgSHUS9Wj9WY3nvpcDnCBRXuG2yKKQ3ZiQ2bccqhx"
+				"bzz-raw://6974862e8fa01a2e26f5187cea25a1d73a6743c056afe69ac94cb5a350a34722",
+				"dweb:/ipfs/QmWH7x2YQvQAuxGfKQmXjeRYMzHW9LCfLoJDvECXEeNoJV"
 			]
 		}
 	},

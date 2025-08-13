@@ -7,31 +7,41 @@ contract ERC20 {
     string constant public  symbol = "MTN";
     uint8 constant public  decimals = 18;
 
+    event Transfer(address indexed from , address indexed to , uint value);
+    event Approval(address indexed owner , address indexed spender , uint value);
+
     uint public totalSupply; 
     mapping (address  => uint) public  balanceOf;
-    mapping (address => mapping(address  => uint)) public allowence;
+    mapping (address => mapping(address  => uint)) public allowance;
 
-    function  transfer(address to  ,uint amount ) public returns (bool) {
-        return  _transfer(msg.sender , to , amount );
+    function  transfer(address to  ,uint value ) external returns (bool) {
+        return _transfer(msg.sender , to , value );
     }
 
-    function transferFrom(address from, address to, uint256 amount) public  returns  (bool) {
-        require(allowence[from][msg.sender] >= amount , "Insufficient Allowence");
-        allowence[from][msg.sender] -= amount;
+    function transferFrom(address from, address to, uint256 value) external returns  (bool) {
+        require(allowance[from][msg.sender] >= value , "Insufficient allowance");
+        allowance[from][msg.sender] -= value;
 
-        return  _transfer(from, to, amount);
+        emit Approval(from, msg.sender, allowance[from][msg.sender]);
+
+        return _transfer(from, to, value);
     }
 
-    function approve(address spender, uint256 amount) public  returns  (bool) {
-        allowence[msg.sender][spender] += amount;
+    function approve(address spender, uint256 value) external returns  (bool) {
+        allowance[msg.sender][spender] += value;
+
+        emit Approval(msg.sender, spender, value);
 
         return true; 
     }
 
-    function _transfer(address from ,address to , uint amount) private  returns  (bool) {
-        require(balanceOf[from] >= amount , "Insufficient Balance");
-        balanceOf[msg.sender] -= amount;
-        balanceOf[to] += amount;
+    function _transfer(address from ,address to , uint value) private  returns  (bool) {
+        require(balanceOf[from] >= value , "Insufficient Balance");
+
+        emit Transfer(from, to, value);
+
+        balanceOf[from] -= value;
+        balanceOf[to] += value;
 
         return true;
     }
