@@ -12,20 +12,14 @@ contract ERC20 {
     mapping (address => mapping(address  => uint)) public allowence;
 
     function  transfer(address to  ,uint amount ) public returns (bool) {
-        require(balanceOf[msg.sender] >= amount , "Insufficient Balance");
-        balanceOf[msg.sender] -= amount;
-        balanceOf[to] += amount;
-
-        return true;
+        return  _transfer(msg.sender , to , amount );
     }
 
     function transferFrom(address from, address to, uint256 amount) public  returns  (bool) {
+        require(allowence[from][msg.sender] >= amount , "Insufficient Allowence");
         allowence[from][msg.sender] -= amount;
 
-        balanceOf[from] -= amount;
-        balanceOf[to] += amount;
-
-        return  true;
+        return  _transfer(from, to, amount);
     }
 
     function approve(address spender, uint256 amount) public  returns  (bool) {
@@ -33,5 +27,14 @@ contract ERC20 {
 
         return true; 
     }
+
+    function _transfer(address from ,address to , uint amount) private  returns  (bool) {
+        require(balanceOf[from] >= amount , "Insufficient Balance");
+        balanceOf[msg.sender] -= amount;
+        balanceOf[to] += amount;
+
+        return true;
+    }
 }
+
 
