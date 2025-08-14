@@ -8,9 +8,19 @@
 			{
 				"inputs": [
 					{
-						"internalType": "uint256",
-						"name": "initialSupply",
-						"type": "uint256"
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_symbol",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "_owner",
+						"type": "address"
 					}
 				],
 				"stateMutability": "nonpayable",
@@ -134,6 +144,24 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "burn",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "decimals",
 				"outputs": [
@@ -147,6 +175,24 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "mint",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "name",
 				"outputs": [
@@ -154,6 +200,19 @@
 						"internalType": "string",
 						"name": "",
 						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
 					}
 				],
 				"stateMutability": "view",
@@ -267,11 +326,11 @@
 	},
 	"sources": {
 		"ERC20.sol": {
-			"keccak256": "0xf32dbb5ace45401b1d39605266a0e3ed0516d258085385adb076c93d2246d9a9",
+			"keccak256": "0x5582b002c7dec357251f35a56a984ab9bde8eb9923ec6565be2a38ebd2ce6dd1",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://7e234979e32811e385b88d862218fac53ca35b3d788099669aa05d8c2f9124d8",
-				"dweb:/ipfs/QmVH9Lqu81Ka1Q8i9q8U57tQnfuy7nWnJgPFdwy9u6ejUo"
+				"bzz-raw://dfd93890c81d562e4be8e797c232bf2062caee2c7875fd3832cf4dfb30fef743",
+				"dweb:/ipfs/QmYPmmHoSMBfdG2HTYQYAnBexpopm6e7p8EHMdoWsQh5H3"
 			]
 		}
 	},

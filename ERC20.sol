@@ -3,20 +3,47 @@
 pragma solidity 0.8.30;
 
 contract ERC20 {
-    string constant public name = "MyTokenName";
-    string constant public symbol = "MTN";
+    string public name ;
+    string public symbol ;
     uint8 constant public decimals = 18;
+    uint public totalSupply;
+
+    address public  owner;
 
     event Transfer(address indexed from, address indexed to, uint256 value);
     event Approval(address indexed owner, address indexed spender, uint256 value);
 
-    uint public totalSupply;
     mapping(address => uint256) public balanceOf;
     mapping(address => mapping(address => uint256)) public allowance;
 
-    constructor(uint256 initialSupply) {
-        totalSupply = initialSupply;
-        balanceOf[msg.sender] = initialSupply;
+    constructor(string memory _name , string memory _symbol , address _owner) {
+        name = _name;
+        symbol = _symbol;
+        owner = _owner ;
+    }
+
+    function _mint(address to ,uint256 value) private {
+        balanceOf[to] += value;
+        totalSupply += value;
+
+        emit Transfer(address(0), to, value);
+    }
+
+    function mint(address to, uint256 value) external   {
+        require(msg.sender == owner);
+        _mint(to, value);
+    }
+
+   function _burn(address from ,uint256 value) private {
+        balanceOf[from] -= value;
+        totalSupply -= value;
+
+        emit Transfer(from, address(0), value);
+    }
+
+    function burn(address from, uint256 value) external   {
+        require(msg.sender == owner);
+        _mint(from, value);
     }
 
     function transfer(address to, uint256 value) external returns (bool) {
